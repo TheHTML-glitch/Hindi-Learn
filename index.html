@@ -1,0 +1,110 @@
+# Hindi-Learn
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Web</title>
+    <style>
+        @font-face {
+            font-family: 'Arohi';
+            src: url('path/to/arohi.ttf') format('truetype'); /* Update this path */
+        }
+
+        body {
+            background-color: #FF8C00; /* Dark orange background */
+            color: white;
+            font-family: 'Arohi', Arial, sans-serif; /* Using Arohi font */
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px;
+            margin: 0 5px;
+            background-color: #FFA500;
+            cursor: pointer;
+        }
+        .tab:hover {
+            background-color: #FF4500;
+        }
+        .content {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Hindi Web</h1>
+    <p>Made by Aadi Sreehari</p>
+</header>
+
+<div class="tabs">
+    <div class="tab" onclick="showTab('translator')">Translator</div>
+    <div class="tab" onclick="showTab('vocabulary')">Vocabulary Helper</div>
+    <div class="tab" onclick="showTab('contact')">Contact</div>
+</div>
+
+<div id="translator" class="content active">
+    <h2>English to Hindi Translator</h2>
+    <textarea id="englishText" rows="4" cols="50" placeholder="Type English text here..."></textarea><br>
+    <button onclick="translate()">Translate</button>
+    <p id="hindiTranslation"></p>
+</div>
+
+<div id="vocabulary" class="content">
+    <h2>Hindi Vocabulary Helper</h2>
+    <input type="text" id="hindiWord" placeholder="Enter Hindi word...">
+    <button onclick="getMeaning()">Get Meaning</button>
+    <p id="wordMeaning"></p>
+</div>
+
+<div id="contact" class="content">
+    <h2>Help Needed?</h2>
+    <p>Contact us at: <a href="mailto:aadisreehari2021@gmail.com">aadisreehari2021@gmail.com</a></p>
+</div>
+
+<footer>
+    <p>&copy; 2024 Hindi Web</p>
+</footer>
+
+<script>
+    function showTab(tabId) {
+        const tabs = document.querySelectorAll('.content');
+        tabs.forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+    }
+
+    function translate() {
+        const englishText = document.getElementById('englishText').value;
+        // Simple mock translation (implement your translation logic here)
+        document.getElementById('hindiTranslation').innerText = "Translated Hindi: " + englishText; // Placeholder
+    }
+
+    function getMeaning() {
+        const hindiWord = document.getElementById('hindiWord').value;
+        // Simple mock meaning retrieval (implement your meaning logic here)
+        document.getElementById('wordMeaning').innerText = "Meaning of " + hindiWord + ": (mock meaning)"; // Placeholder
+    }
+</script>
+
+</body>
+</html>
